@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: sa-east-1
+      auto: false
+    credentials:
+      access-key: AKIASI6DUMMUPXH65HL3
+      secret-key: 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
+    end-point:
+      uri: https://sqs.sa-east-1.amazonaws.com/156639716136/queue
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+        internal:
+          InstanceMetadataServiceResourceFetcher: error
+
+spring:
+  profiles:
+    active: ${spring_profile}
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_java
+    username: postgres
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
