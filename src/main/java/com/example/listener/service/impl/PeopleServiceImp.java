@@ -29,7 +29,6 @@ public class PeopleServiceImp implements PeopleService {
 
     @Override
     public List<PeopleResponse> getAll() {
-        List<PeopleEntity> response = peopleRepository.findAll();
         return converter.EntityToPeople(peopleRepository.findAll());
     }
 
